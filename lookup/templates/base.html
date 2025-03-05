@@ -5,6 +5,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
+    <style>
+      .custom-jumbotron {
+            background-color: #0C0;
+        }
+
+      .bg-light p-5 rounded-lg m-3 mod {background-color:#FFFF00;}
+      .bg-light p-5 rounded-lg m-3 usg  {background-color:#FF9900;}
+      .bg-light p-5 rounded-lg m-3 unh {background-color:#FF0000;}
+      .bg-light p-5 rounded-lg m-3 un {background-color:#990066;}
+      .bg-light p-5 rounded-lg m-3 haz {background-color:#660000;}
+
+    </style>
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
@@ -22,9 +36,10 @@
         </li>
 
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-secondary" type="submit">Search</button>
+      <form action="{% url 'home' %}" class="d-flex" role="search" method="POST">
+          {% csrf_token %}
+        <input class="form-control me-2" type="search" name="zipcode" placeholder="Enter Zipcode" aria-label="Search">
+        <button class="btn btn-secondary" type="submit">LookUp</button>
 
       </form>
     </div>
